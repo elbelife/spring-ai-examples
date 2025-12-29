@@ -25,8 +25,6 @@ public class ImageController {
     public Map<String, Object> generate(@RequestBody Map<String, String> body) throws IOException {
         Map<String, Object> res = service.generate(body.get("prompt"));
         for (Map.Entry<String, Object> entry : res.entrySet()) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-            
             Object value = entry.getValue();
             if (value instanceof java.util.List) {
                 java.util.List<String> images = (java.util.List<String>) value;
